@@ -536,7 +536,7 @@ h1, h2 {
 }
 
 /* Ken Burns — slow zoom on hero background image */
-.hero-section::after {
+.hero-section::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1428,7 +1428,7 @@ h1 {
   #site-header {
     animation: none;
   }
-  .hero-section::after,
+  .hero-section::before,
   .cta-split-photo img,
   .story-photo img {
     animation: none;
