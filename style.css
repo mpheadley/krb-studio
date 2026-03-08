@@ -553,13 +553,9 @@ h1, h2 {
   z-index: 1;
 }
 
-.hero-section > * {
+.hero-content {
   position: relative;
   z-index: 2;
-}
-
-.hero-content {
-  position: static;
   padding-top: 120px;
   padding-bottom: 80px;
   width: 100%;
@@ -1058,6 +1054,24 @@ h1 {
 
 /* ─── Footer ─── */
 /* ─── Testimonial (Style D — Featured quote with side accent) ─── */
+.testimonial-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("images/recital-collage.webp") center / cover no-repeat;
+  opacity: 0.12;
+}
+
+.testimonial-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .testimonial-featured {
   max-width: 700px;
   margin: 0 auto;
@@ -1599,7 +1613,7 @@ h1 {
   bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
