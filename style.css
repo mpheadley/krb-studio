@@ -1134,7 +1134,6 @@ h1 {
   width: 100%;
   max-width: 400px;
   border-radius: 16px;
-  object-fit: cover;
 }
 
 .cta-quote {
