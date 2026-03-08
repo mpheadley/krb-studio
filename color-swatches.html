@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KRB Studio — Color Palette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; background: #FAF7F4; padding: 40px; color: #3D2E44; }
+  h1 { text-align: center; color: #2D1B3D; margin-bottom: 10px; font-size: 28px; font-family: 'Lora', serif; }
+  p.sub { text-align: center; color: #8E7D8E; margin-bottom: 40px; font-size: 15px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .swatch { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(45,27,61,0.08); }
+  .swatch .color { height: 120px; }
+  .swatch .info { padding: 14px 16px; background: #fff; }
+  .swatch .info .name { font-weight: 700; font-size: 14px; color: #2D1B3D; }
+  .swatch .info .hex { font-size: 13px; color: #8E7D8E; margin-top: 2px; font-family: monospace; }
+  .swatch .info .use { font-size: 12px; color: #6b5f70; margin-top: 6px; line-height: 1.4; }
+  .divider { grid-column: 1 / -1; border-top: 1px solid #E0D8E4; margin: 10px 0; }
+  .section-label { grid-column: 1 / -1; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #7B72E9; margin-top: 10px; font-weight: 600; }
+
+  .combo { max-width: 900px; margin: 50px auto 0; }
+  .combo h2 { color: #2D1B3D; margin-bottom: 20px; font-size: 22px; font-family: 'Lora', serif; }
+  .combo-row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .combo-card { flex: 1; min-width: 260px; border-radius: 12px; padding: 30px; }
+  .combo-card h3 { font-size: 22px; margin-bottom: 8px; font-family: 'Lora', serif; }
+  .combo-card p { font-size: 15px; line-height: 1.6; }
+  .combo-card .btn { display: inline-block; margin-top: 16px; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .combo-card .btn:hover { transform: translateY(-1px); }
+
+  .font-preview { max-width: 900px; margin: 50px auto 0; }
+  .font-preview h2 { color: #2D1B3D; margin-bottom: 20px; font-size: 22px; font-family: 'Lora', serif; }
+  .font-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+  .font-card { flex: 1; min-width: 260px; background: #fff; border: 1px solid #E0D8E4; border-radius: 12px; padding: 30px; }
+  .font-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #7B72E9; margin-bottom: 12px; font-weight: 600; }
+  .font-card .sample-heading { font-family: 'Lora', serif; color: #2D1B3D; }
+  .font-card .sample-body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: #5C4D5E; line-height: 1.6; }
+
+  .hero-demo { max-width: 900px; margin: 50px auto 0; }
+  .hero-demo h2 { color: #2D1B3D; margin-bottom: 20px; font-size: 22px; font-family: 'Lora', serif; }
+  .hero-block {
+    background: #FAF7F4;
+    border: 1px solid #E0D8E4;
+    border-radius: 12px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-block .eyebrow {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 3px;
+    color: #8E7D8E; margin-bottom: 16px; font-weight: 600;
+  }
+  .hero-block .h1-line {
+    font-family: 'Lora', serif; font-weight: 700;
+    font-size: 48px; line-height: 1.2; display: block; color: #2D1B3D;
+  }
+  .hero-block .sub-headline {
+    font-family: 'DM Sans', sans-serif; font-size: 18px;
+    color: #5C4D5E; margin-top: 16px; line-height: 1.6; max-width: 560px; margin-left: auto; margin-right: auto;
+  }
+  .hero-block .cta-row { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero-block .cta-row a {
+    display: inline-block; padding: 14px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Services pattern */
+  .services-demo { max-width: 900px; margin: 50px auto 0; }
+  .services-demo h2 { color: #2D1B3D; margin-bottom: 20px; font-size: 22px; font-family: 'Lora', serif; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 700px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: #fff; border: 1px solid #E0D8E4; border-radius: 12px;
+    padding: 28px; text-align: center;
+  }
+  .service-card .icon { font-size: 32px; margin-bottom: 12px; }
+  .service-card h4 { font-family: 'Lora', serif; font-size: 18px; color: #2D1B3D; margin-bottom: 8px; }
+  .service-card p { font-size: 14px; color: #5C4D5E; line-height: 1.5; }
+  .service-card .accent { color: #7B72E9; font-weight: 600; }
+
+  /* Testimonial pattern */
+  .testimonial-demo { max-width: 900px; margin: 50px auto 0; }
+  .testimonial-demo h2 { color: #2D1B3D; margin-bottom: 20px; font-size: 22px; font-family: 'Lora', serif; }
+  .testimonial-card {
+    background: #F0ECF4; border-radius: 12px; padding: 32px;
+    max-width: 600px; margin: 0 auto; text-align: center;
+  }
+  .testimonial-card .stars { color: #E8B84A; font-size: 20px; margin-bottom: 12px; letter-spacing: 4px; }
+  .testimonial-card blockquote {
+    font-family: 'Lora', serif; font-size: 18px; font-style: italic;
+    color: #3D2E44; line-height: 1.6; margin-bottom: 16px;
+  }
+  .testimonial-card .attribution { font-size: 14px; color: #8E7D8E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>KRB Studio — Proposed Color Palette</h1>
+<p class="sub">Periwinkle + Bright Gold + Deep Plum on Warm Cream — Cozy Creative Studio</p>
+
+<div class="grid">
+
+  <div class="section-label">Primary & Accents</div>
+
+  <div class="swatch">
+    <div class="color" style="background: #7B72E9;"></div>
+    <div class="info">
+      <div class="name">Primary — Periwinkle</div>
+      <div class="hex">#7B72E9</div>
+      <div class="use">CTAs, links, buttons, active nav, section labels</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #6A60D4;"></div>
+    <div class="info">
+      <div class="name">Primary Hover</div>
+      <div class="hex">#6A60D4</div>
+      <div class="use">Button hover state</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #E8B84A;"></div>
+    <div class="info">
+      <div class="name">Secondary — Bright Gold</div>
+      <div class="hex">#E8B84A</div>
+      <div class="use">Warm accent — star ratings, icons, CTA on dark backgrounds, highlights</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">Dark Backgrounds</div>
+
+  <div class="swatch">
+    <div class="color" style="background: #2D1B3D;"></div>
+    <div class="info">
+      <div class="name">Dark — Deep Plum</div>
+      <div class="hex">#2D1B3D</div>
+      <div class="use">Nav bg, dark sections, footer, hero overlay</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #3D2E44;"></div>
+    <div class="info">
+      <div class="name">Dark 2 — Plum Gray</div>
+      <div class="hex">#3D2E44</div>
+      <div class="use">Heading text on light backgrounds</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">Light Backgrounds</div>
+
+  <div class="swatch">
+    <div class="color" style="background: #FAF7F4; border: 1px solid #E0D8E4;"></div>
+    <div class="info">
+      <div class="name">Light — Warm Cream</div>
+      <div class="hex">#FAF7F4</div>
+      <div class="use">Page background, primary light sections</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #F0ECF4; border: 1px solid #E0D8E4;"></div>
+    <div class="info">
+      <div class="name">Light Grey — Lavender Tint</div>
+      <div class="hex">#F0ECF4</div>
+      <div class="use">Alternating section bg, card backgrounds, testimonial cards</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #FFFFFF; border: 1px solid #E0D8E4;"></div>
+    <div class="info">
+      <div class="name">White</div>
+      <div class="hex">#FFFFFF</div>
+      <div class="use">Cards on tinted backgrounds</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">Text Colors</div>
+
+  <div class="swatch">
+    <div class="color" style="background: #5C4D5E;"></div>
+    <div class="info">
+      <div class="name">Body Text</div>
+      <div class="hex">#5C4D5E</div>
+      <div class="use">Paragraph copy on light backgrounds</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #E8DFE8;"></div>
+    <div class="info">
+      <div class="name">Text Light</div>
+      <div class="hex">#E8DFE8</div>
+      <div class="use">Body copy on dark plum backgrounds</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="color" style="background: #8E7D8E;"></div>
+    <div class="info">
+      <div class="name">Text Muted — Dusty Mauve</div>
+      <div class="hex">#8E7D8E</div>
+      <div class="use">Captions, secondary text, eyebrow labels</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Typography Preview -->
+<div class="font-preview">
+  <h2>Typography — Lora 700 + DM Sans 400</h2>
+  <div class="font-row">
+    <div class="font-card">
+      <div class="label">Heading Font — Lora (serif)</div>
+      <div class="sample-heading" style="font-size: 42px; font-weight: 700; margin-bottom: 8px;">Find Your Voice</div>
+      <div class="sample-heading" style="font-size: 28px; font-weight: 600; margin-bottom: 8px; color: #7B72E9;">in a World of Music</div>
+      <div class="sample-heading" style="font-size: 20px; font-weight: 500;">Singing. Storytelling. Movement.</div>
+    </div>
+    <div class="font-card">
+      <div class="label">Body Font — DM Sans (sans-serif)</div>
+      <div class="sample-body" style="font-size: 17px; margin-bottom: 12px;">We help adults and families in Anniston move past the fear of judgment and into the freedom of creative expression through singing, storytelling, and movement.</div>
+      <div class="sample-body" style="font-size: 14px; color: #8E7D8E;">KRB Studio at the Greenbriar Dear Entrepreneurial Center</div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Demo -->
+<div class="hero-demo">
+  <h2>Hero Section Preview</h2>
+  <div class="hero-block">
+    <div class="eyebrow">Music Lessons in Anniston, AL</div>
+    <span class="h1-line">Find Your <span style="color: #7B72E9;">Voice</span> in Music</span>
+    <div class="sub-headline">Singing, storytelling, and movement lessons that help you connect with music — no experience needed. Just bring yourself.</div>
+    <div class="cta-row">
+      <a href="#" style="background: #E8B84A; color: #2D1B3D; box-shadow: 0 4px 16px rgba(232,184,74,0.30); font-weight: 700;">Book a Discovery Session</a>
+      <a href="#" style="background: transparent; color: #7B72E9; border: 2px solid #7B72E9;">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!-- Services Pattern -->
+<div class="services-demo">
+  <h2>Services Cards — Content Pattern</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">🎵</div>
+      <h4>Singing Lessons</h4>
+      <p>Personalized vocal coaching focused on <span class="accent">confidence</span> and the joy of music — not perfection.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">📖</div>
+      <h4>Musical Storytelling</h4>
+      <p>Combine lyrics, rhythm, and narrative to find <span class="accent">meaningful expression</span> through song.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">💃</div>
+      <h4>Movement & Rhythm</h4>
+      <p>Whole-body movement and dance that makes music a <span class="accent">physical experience</span>, not just academic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonial Pattern -->
+<div class="testimonial-demo">
+  <h2>Testimonial Card — Gold Stars + Lavender Card</h2>
+  <div class="testimonial-card">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <blockquote>"My lessons are fun and have given me so much confidence. I always wanted to learn but never thought I could."</blockquote>
+    <div class="attribution">— KRB Studio Student</div>
+  </div>
+</div>
+
+<!-- Section Combos -->
+<div class="combo">
+  <h2>Section Combos — Light & Dark</h2>
+  <div class="combo-row">
+
+    <!-- Light section -->
+    <div class="combo-card" style="background: #FAF7F4; border: 1px solid #E0D8E4;">
+      <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #7B72E9; margin-bottom: 12px; font-weight: 600;">How It Works</div>
+      <h3 style="color: #2D1B3D;">Your Path to Musical <span style="color: #7B72E9;">Confidence</span></h3>
+      <p style="color: #5C4D5E;">Three simple steps from curious to confident. No auditions, no pressure — just a conversation about what <span style="color: #7B72E9; font-weight: 600;">you</span> want from music.</p>
+      <a class="btn" href="#" style="background: #7B72E9; color: #fff; box-shadow: 0 4px 16px rgba(123,114,233,0.25);">Book a Discovery Session</a>
+    </div>
+
+    <!-- Dark section -->
+    <div class="combo-card" style="background: #2D1B3D;">
+      <h3 style="color: #FFFFFF;">Ready to Start Your <span style="color: #E8B84A;">Story</span>?</h3>
+      <p style="color: #E8DFE8;">Take the first step toward musical confidence. Book a free discovery session with Katie today.</p>
+      <a class="btn" href="#" style="background: #E8B84A; color: #2D1B3D; font-weight: 700;">Book Your Session</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
